@@ -312,7 +312,7 @@ do
             _dragging_offset = Vector2.new(mouse.X,mouse.Y)-frame.AbsolutePosition
         end)
 
-        local inputEnded = mouse.TouchStarted:Connect(function()
+        local inputEnded = mouse.Button1Up:Connect(function()
             _dragging = false
             _dragging_offset = nil
         end)
