@@ -98,7 +98,7 @@ do
             end
         end)
 
-        button.TouchEnded:Connect(function()
+        button.MouseLeave:Connect(function()
             gradient.Rotation = -90
         end)
 
@@ -615,7 +615,7 @@ do
             Converted["_Ignore2"].Parent = Converted["_Theme2"]
 
             Converted["_Title"].Font = Enum.Font.GothamBold
-            Converted["_Title"].Text = "Game Detected"
+            Converted["_Title"].Text = ""
             Converted["_Title"].TextColor3 = Color3.fromRGB(225.00000178813934, 225.00000178813934, 225.00000178813934)
             Converted["_Title"].TextSize = 18
             Converted["_Title"].TextTruncate = Enum.TextTruncate.AtEnd
@@ -2124,7 +2124,7 @@ do
             local profile = loader.Profile
 
             main.GameName.Text = GameName
-            main.Message.Text = "Script: "..info.FullName
+            main.Message.Text = "脚本: "..info.FullName
 
             local allGood = false
             local chosen = false
@@ -2199,7 +2199,7 @@ do
                         end
                     end
 
-                    check.Activated:Connect(doChecks)
+                    check.MouseButton1Click:Connect(doChecks)
                     textBox.FocusLost:Connect(function(enterPressed)
                         if enterPressed then
                             doChecks()
@@ -2261,7 +2261,7 @@ do
                 end)
             end
 
-            closeBtn.Activated:Connect(doClose)
+            closeBtn.MouseButton1Click:Connect(doClose)
 
             allGood:Play()
 
@@ -2350,14 +2350,14 @@ do
 
             table.insert(_connections,pagesUpdate)
 
-            openBtn.Activated:Connect(function()
+            openBtn.MouseButton1Click:Connect(function()
                 if state == false then
                     state = true
                     startTween(openSize)
                 end
             end)
 
-            closeBtn.Activated:Connect(function()
+            closeBtn.MouseButton1Click:Connect(function()
                 if state == true then
                     state = false
                     startTween(closeSize)
@@ -2375,7 +2375,7 @@ do
             local searchBtn = utility:CreateButtonObject(lib.Main.Contents.Top.Search)
             local searchBar = lib.Main.Contents.Top.SearchBar
 
-            searchBtn.Activated:Connect(function()
+            searchBtn.MouseButton1Click:Connect(function()
                 searchBar.Visible = not searchBar.Visible
                 if not searchBar.Visible then
                     searchBar.TextBox.Text = ""
@@ -2385,7 +2385,7 @@ do
             local infoButton = utility:CreateButtonObject(lib.Main.Contents.Top.Info)
             local infoDialogue = lib.Main.Contents.Top.Info.Credits
 
-            infoButton.Activated:Connect(function()
+            infoButton.MouseButton1Click:Connect(function()
                 infoDialogue.Visible = not infoDialogue.Visible
             end)
         end
@@ -2419,7 +2419,7 @@ do
                 resize.Visible = true
             end)
 
-            button.TouchEnded:Connect(function()
+            button.MouseLeave:Connect(function()
                 resize.Visible = false
             end)
 
@@ -2530,7 +2530,7 @@ do
 
             local doSearchBtn = utility:CreateButtonObject(lib.Main.Contents.Top.SearchBar.Icon)
 
-            doSearchBtn.Activated:Connect(function()
+            doSearchBtn.MouseButton1Click:Connect(function()
                 searchBar:ReleaseFocus()
             end)
 
@@ -2578,7 +2578,7 @@ do
 
         local closeBtn = utility:CreateButtonObject(lib.Main.Contents.Top.Close)
 
-        closeBtn.Activated:Connect(function()
+        closeBtn.MouseButton1Click:Connect(function()
             self:Toggle(false)
         end)
 
@@ -2847,12 +2847,12 @@ do
         local yes = utility:CreateButtonObject(notif.Frame.Yes)
         local no = utility:CreateButtonObject(notif.Frame.No)
 
-        yes.Activated:Connect(function()
+        yes.MouseButton1Click:Connect(function()
             tweenOut()
             info.Callback(true)
         end)
 
-        no.Activated:Connect(function()
+        no.MouseButton1Click:Connect(function()
             tweenOut()
             info.Callback(false)
         end)
@@ -3050,7 +3050,7 @@ do
         v1.Parent = selector
         v2.Parent = contents
 
-        selector.Button.Activated:Connect(function()
+        selector.Button.MouseButton1Click:Connect(function()
             container.Main.CurrentPage.Value = pageNum
             _self._closePages()
         end)
@@ -3448,14 +3448,14 @@ do
 
             local tween1,tween2
 
-            toggleBtn.Activated:Connect(function()
+            toggleBtn.MouseButton1Click:Connect(function()
                 _self.Flags[info.Flag] = not _self.Flags[info.Flag]
                 coroutine.wrap(info.Callback)(_self.Flags[info.Flag])
             end)
 
             local bigButton = utility:CreateButtonObject(element)
             bigButton.ZIndex = 0
-            bigButton.Activated:Connect(function()
+            bigButton.MouseButton1Click:Connect(function()
                 utility:DoClickEffect(element)
                 _self.Flags[info.Flag] = not _self.Flags[info.Flag]
                 coroutine.wrap(info.Callback)(_self.Flags[info.Flag])
@@ -4259,14 +4259,14 @@ do
 
             local tween1,tween2
 
-            toggleBtn.Activated:Connect(function()
+            toggleBtn.MouseButton1Click:Connect(function()
                 _self.Flags[info.ToggleFlag] = not _self.Flags[info.ToggleFlag]
                 coroutine.wrap(info.ToggleCallback)(_self.Flags[info.ToggleFlag])
             end)
 
             local bigButton = utility:CreateButtonObject(element)
             bigButton.ZIndex = 0
-            bigButton.Activated:Connect(function()
+            bigButton.MouseButton1Click:Connect(function()
                 utility:DoClickEffect(element)
                 _self.Flags[info.ToggleFlag] = not _self.Flags[info.ToggleFlag]
                 coroutine.wrap(info.ToggleCallback)(_self.Flags[info.ToggleFlag])
@@ -4640,7 +4640,7 @@ do
 
             local goal = 0.9
 
-            btn.Activated:Connect(function()
+            btn.MouseButton1Click:Connect(function()
                 utility:DoClickEffect(element)
                 coroutine.wrap(info.Callback)()
             end)
@@ -5267,7 +5267,7 @@ do
                 fr.BackgroundColor3 = Color3.new(color.R*m,color.G*m,color.B*m)
             end)
 
-            btn.TouchEnded:Connect(function()
+            btn.MouseLeave:Connect(function()
                 fr.BackgroundColor3 = color
             end)
 
@@ -5927,7 +5927,7 @@ do
 
             local btn = utility:CreateButtonObject(element.Main)
 
-            btn.Activated:Connect(toggleDropdown)
+            btn.MouseButton1Click:Connect(toggleDropdown)
         end
 
         info.WarningIcon = info.WarningIcon or Library.Icons.Warning
@@ -6123,7 +6123,7 @@ do
     
                 local goal = 0.95
     
-                btn.Activated:Connect(function()
+                btn.MouseButton1Click:Connect(function()
                     utility:DoClickEffect(element)
                     coroutine.wrap(func)(element)
                 end)
@@ -6639,7 +6639,7 @@ do
             btn.MouseEnter:Connect(function()
                 hovering = true
             end)
-            btn.TouchEnded:Connect(function()
+            btn.MouseLeave:Connect(function()
                 hovering = false
             end)
             table.insert(_self._connections,UIS.WindowFocusReleased:Connect(function()
@@ -6652,7 +6652,7 @@ do
                     currentcolor.BackgroundColor3 = _self.Flags[info.Flag]
                 end))
             end)()
-            btn.Activated:Connect(toggleDropdown)
+            btn.MouseButton1Click:Connect(toggleDropdown)
         end
 
         do -- color picking
