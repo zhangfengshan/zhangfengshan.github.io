@@ -2200,7 +2200,7 @@ do
                     end
 
                     check.MouseButton1Click:Connect(doChecks)
-                    textBox.F>(function(enterPressed)
+                    textBox.FocusLost:Connect(function(enterPressed)
                         if enterPressed then
                             doChecks()
                         end
