@@ -165,7 +165,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
 	BindButton.Font = Enum.Font.GothamSemibold
 	BindButton.Text = "微山工作室"
 	BindButton.TextColor3 = Color3.fromRGB(147, 255, 204)
-	BindButton.TextSize = 13.000
+	BindButton.TextSize = 15.000
 
 	local Tab = Instance.new("Frame")
 	Tab.Name = "Tab"
@@ -250,28 +250,6 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
 		end
 	end)
 	
-	-- 创建按钮
-local button = Instance.new("TextButton")
-button.Name = "MyButton"
-button.Text = "o/c"
-button.Size = UDim2.new(0, 100, 0, 50)
-button.Position = UDim2.new(0.5, -50, 0.5, -25)
-button.BackgroundColor3 = Color3.fromRGB(51, 102, 0) -- 暗绿色背景
-button.TextColor3 = Color3.new(1, 1, 1) -- 白色文字
-button.Font = Enum.Font.SourceSansBold
-button.TextSize = 18
-button.Parent = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui -- 改为实际的屏幕GUI名称
-
-button.MouseButton1Click:Connect(function()
-    if uihide == false then
-        uihide = true
-        Main:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
-    else
-        uihide = false
-        Main:TweenSize(UDim2.new(0, 656, 0, 400),"Out","Quad",0.4,true)
-    end
-end)
-
 	local uitab = {}
 	
 	function uitab:Tab(text)
@@ -1055,4 +1033,3 @@ end)
 	return uitab
 end
 return DarkraiX
-
