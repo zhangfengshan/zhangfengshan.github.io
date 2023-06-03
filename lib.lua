@@ -499,149 +499,138 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
 				pcall(callback,toggled)
 			end
 		end
-		function main:Dropdown(text, option, callback)
-    local isdropping = false
-    local Dropdown = Instance.new("Frame")
-    local UICorner = Instance.new("UICorner")
-    local DropTitle = Instance.new("TextLabel")
-    local SearchBox = Instance.new("TextBox") -- 添加搜索框控件
-    local DropScroll = Instance.new("ScrollingFrame")
-    local UIListLayout = Instance.new("UIListLayout")
-    local UIPadding = Instance.new("UIPadding")
-    local DropButton = Instance.new("TextButton")
-    local DropImage = Instance.new("ImageLabel")
-    
-    Dropdown.Name = "Dropdown"
-    Dropdown.Parent = MainFramePage
-    Dropdown.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    Dropdown.ClipsDescendants = true
-    Dropdown.Size = UDim2.new(0, 470, 0, 31)
-    
-    UICorner.CornerRadius = UDim.new(0, 5)
-    UICorner.Parent = Dropdown
-    
-    DropTitle.Name = "DropTitle"
-    DropTitle.Parent = Dropdown
-    DropTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    DropTitle.BackgroundTransparency = 1.000
-    DropTitle.Size = UDim2.new(0, 470, 0, 31)
-    DropTitle.Font = Enum.Font.GothamSemibold
-    DropTitle.Text = text.. " : "
-    DropTitle.TextColor3 = Color3.fromRGB(225, 225, 225)
-    DropTitle.TextSize = 15.000
-    
-    SearchBox.Name = "SearchBox" -- 设置搜索框控件属性
-    SearchBox.Parent = Dropdown
-    SearchBox.PlaceholderText = "Search"
-    SearchBox.ClearTextOnFocus = false
-    SearchBox.Size = UDim2.new(0, 470, 0, 31)
-    SearchBox.Font = Enum.Font.SourceSans
-    SearchBox.TextSize = 14.000
-    
-    DropScroll.Name = "DropScroll"
-    DropScroll.Parent = DropTitle
-    DropScroll.Active = true
-    DropScroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    DropScroll.BackgroundTransparency = 1.000
-    DropScroll.BorderSizePixel = 0
-    DropScroll.Position = UDim2.new(0, 0, 0, 31)
-    DropScroll.Size = UDim2.new(0, 470, 0, 100)
-    DropScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
-    DropScroll.ScrollBarThickness = 3
-    
-    UIListLayout.Parent = DropScroll
-    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    UIListLayout.Padding = UDim.new(0, 5)
-    
-    UIPadding.Parent = DropScroll
-    UIPadding.PaddingLeft = UDim.new(0, 5)
-    UIPadding.PaddingTop = UDim.new(0, 5)
-    
-    DropImage.Name = "DropImage"
-    DropImage.Parent = Dropdown
-    DropImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    DropImage.BackgroundTransparency = 1.000
-    DropImage.Position = UDim2.new(0, 445, 0, 6)
-    DropImage.Rotation = 180.000
-    DropImage.Size = UDim2.new(0, 20, 0, 20)
-    DropImage.Image = "rbxassetid://6031090990"
-    
-    DropButton.Name = "DropButton"
-    DropButton.Parent = Dropdown
-    DropButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    DropButton.BackgroundTransparency = 1.000
-    DropButton.Size = UDim2.new(0, 470, 0, 31)
-    DropButton.Font = Enum.Font.SourceSans
-    DropButton.Text = ""
-    DropButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-    DropButton.TextSize = 14.000
+		function main:Dropdown(text,option,callback)
+			local isdropping = false
+			local Dropdown = Instance.new("Frame")
+			local UICorner = Instance.new("UICorner")
+			local DropTitle = Instance.new("TextLabel")
+			local DropScroll = Instance.new("ScrollingFrame")
+			local UIListLayout = Instance.new("UIListLayout")
+			local UIPadding = Instance.new("UIPadding")
+			local DropButton = Instance.new("TextButton")
+			local DropImage = Instance.new("ImageLabel")
+			
+			Dropdown.Name = "Dropdown"
+			Dropdown.Parent = MainFramePage
+			Dropdown.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+			Dropdown.ClipsDescendants = true
+			Dropdown.Size = UDim2.new(0, 470, 0, 31)
+			
+			UICorner.CornerRadius = UDim.new(0, 5)
+			UICorner.Parent = Dropdown
+			
+			DropTitle.Name = "DropTitle"
+			DropTitle.Parent = Dropdown
+			DropTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropTitle.BackgroundTransparency = 1.000
+			DropTitle.Size = UDim2.new(0, 470, 0, 31)
+			DropTitle.Font = Enum.Font.GothamSemibold
+			DropTitle.Text = text.. " : "
+			DropTitle.TextColor3 = Color3.fromRGB(225, 225, 225)
+			DropTitle.TextSize = 15.000
+			
+			DropScroll.Name = "DropScroll"
+			DropScroll.Parent = DropTitle
+			DropScroll.Active = true
+			DropScroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropScroll.BackgroundTransparency = 1.000
+			DropScroll.BorderSizePixel = 0
+			DropScroll.Position = UDim2.new(0, 0, 0, 31)
+			DropScroll.Size = UDim2.new(0, 470, 0, 100)
+			DropScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
+			DropScroll.ScrollBarThickness = 3
+			
+			UIListLayout.Parent = DropScroll
+			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+			UIListLayout.Padding = UDim.new(0, 5)
+			
+			UIPadding.Parent = DropScroll
+			UIPadding.PaddingLeft = UDim.new(0, 5)
+			UIPadding.PaddingTop = UDim.new(0, 5)
+			
+			DropImage.Name = "DropImage"
+			DropImage.Parent = Dropdown
+			DropImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropImage.BackgroundTransparency = 1.000
+			DropImage.Position = UDim2.new(0, 445, 0, 6)
+			DropImage.Rotation = 180.000
+			DropImage.Size = UDim2.new(0, 20, 0, 20)
+			DropImage.Image = "rbxassetid://6031090990"
+			
+			DropButton.Name = "DropButton"
+			DropButton.Parent = Dropdown
+			DropButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropButton.BackgroundTransparency = 1.000
+			DropButton.Size = UDim2.new(0, 470, 0, 31)
+			DropButton.Font = Enum.Font.SourceSans
+			DropButton.Text = ""
+			DropButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+			DropButton.TextSize = 14.000
 
-    -- 将选项表格转换为一个由TextButton控件组成的新表格
-    local optionbuttons = {}
-    for i, v in next, option do
-        local Item = Instance.new("TextButton")
+			for i,v in next,option do
+				local Item = Instance.new("TextButton")
 
-        Item.Name = "Item"
-        Item.Parent = DropScroll
-        Item.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Item.BackgroundTransparency = 1.
-        Item.Size = UDim2.new(0, 460, 0, 25)
-    Item.Font = Enum.Font.SourceSans
-    Item.Text = v
-    Item.TextColor3 = Color3.fromRGB(225, 225, 225)
-    Item.TextSize = 14.000
-    Item.BorderSizePixel = 0
-    Item.ZIndex = 2
+				Item.Name = "Item"
+				Item.Parent = DropScroll
+				Item.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Item.BackgroundTransparency = 1.000
+				Item.Size = UDim2.new(0, 460, 0, 26)
+				Item.Font = Enum.Font.GothamSemibold
+				Item.Text = tostring(v)
+				Item.TextColor3 = Color3.fromRGB(225, 225, 225)
+				Item.TextSize = 13.000
+				Item.TextTransparency = 0.500
 
-    table.insert(optionbuttons, Item)
-end
+				Item.MouseEnter:Connect(function()
+					TweenService:Create(
+						Item,
+						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+						{TextTransparency = 0}
+					):Play()
+				end)
 
--- 搜索功能的实现
-SearchBox:GetPropertyChangedSignal("Text"):connect(function()
-    local search_text = string.lower(SearchBox.Text)
+				Item.MouseLeave:Connect(function()
+					TweenService:Create(
+						Item,
+						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+						{TextTransparency = 0.5}
+					):Play()
+				end)
 
-    for _, button in ipairs(optionbuttons) do
-        if string.find(string.lower(button.Text), search_text) then
-            button.Visible = true
-        else
-            button.Visible = false
-        end
-    end
-    
-    DropScroll.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 10)
-end)
+				Item.MouseButton1Click:Connect(function()
+					isdropping = false
+					Dropdown:TweenSize(UDim2.new(0,470,0,31),"Out","Quad",0.3,true)
+					TweenService:Create(
+						DropImage,
+						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+						{Rotation = 180}
+					):Play()
+					callback(Item.Text)
+					DropTitle.Text = text.." : "..Item.Text
+				end)
+			end
 
--- 展开和折叠下拉菜单并旋转箭头图像
-DropButton.MouseButton1Click:Connect(function()
-    isdropping = not isdropping
-    if isdropping then
-        TweenService:Create(DropImage, TweenInfo.new(0.1), {Rotation = 0}):Play()
-        Dropdown.ClipsDescendants = false
-        DropScroll.Visible = true
-        DropScroll.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 10)
-        SearchBox:CaptureFocus() -- 将光标置于搜索框中
-    else
-        TweenService:Create(DropImage, TweenInfo.new(0.1), {Rotation = 180}):Play()
-        Dropdown.ClipsDescendants = true
-        DropScroll.Visible = false
-        SearchBox.Text = "" -- 折叠时清空搜索框内容
-    end
-end)
+			DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 10)
 
--- 更新下拉菜单的标签，并调用传递给DropDown函数的回调函数
-for _, button in ipairs(optionbuttons) do
-    button.MouseButton1Click:Connect(function()
-        DropTitle.Text = text.. " : ".. button.Text
-        callback(button.Text)
-        isdropping = false
-        TweenService:Create(DropImage, TweenInfo.new(0.1), {Rotation = 180}):Play()
-        Dropdown.ClipsDescendants = true
-        DropScroll.Visible = false
-        SearchBox.Text = "" -- 关闭菜单时清空搜索框内容
-    end)
-end
-return Dropdown
-end
+			DropButton.MouseButton1Click:Connect(function()
+				if isdropping == false then
+					isdropping = true
+					Dropdown:TweenSize(UDim2.new(0,470,0,131),"Out","Quad",0.3,true)
+					TweenService:Create(
+						DropImage,
+						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+						{Rotation = 0}
+					):Play()
+				else
+					isdropping = false
+					Dropdown:TweenSize(UDim2.new(0,470,0,31),"Out","Quad",0.3,true)
+					TweenService:Create(
+						DropImage,
+						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+						{Rotation = 180}
+					):Play()
+				end
+			end)
 
 			local dropfunc = {}
 			function dropfunc:Add(t)
