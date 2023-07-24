@@ -3,14 +3,9 @@
 <head>
   <title>点击按钮执行链接操作</title>
   <script>
-    function handleClick1() {
-      var link = "https://flux.li/windows/start.php?HWID={hwid}";
-      window.location.href = link;
-    }
-
     function handleClick2() {
-      var link = "https://flux.li/windows/start.php?[OFFSET_REPLACE]=false&HWID={hwid}";
-      window.open(link, "_blank", "referer=https://flux.li/windows/start.php?HWID={hwid}");
+      var link = "https://fluxteam.net/windows/checkpoint/check1.php";
+      window.open(link, "_blank", "https://linkvertise.com/");
     }
 
     function handleClick3() {
@@ -33,7 +28,6 @@
   </script>
 </head>
 <body>
-  <button onclick="handleClick1()">Button 1</button>
   <button onclick="handleClick2()">Button 2</button>
   <button onclick="handleClick3()">Button 3</button>
   <button onclick="handleClick4()">Button 4</button>
